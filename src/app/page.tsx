@@ -571,7 +571,7 @@ export default function LandingPage() {
                     <group.icon size={32} className="emerald-icon" />
                     <h3>{group.title}</h3>
                   </div>
-                  {group.specs.map((spec, sIdx) => (
+                  {group.specs.map((spec: { label: string; val: string; highlight?: boolean }, sIdx) => (
                     <div key={sIdx} className="spec-item-l">
                       <span className="label">{spec.label}</span>
                       <span className={`val ${spec.highlight ? 'highlight' : ''}`}>{spec.val}</span>
