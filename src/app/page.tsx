@@ -268,7 +268,26 @@ export default function LandingPage() {
             <div className="vignette-overlay" />
             <div className="grain-overlay" />
 
-            {/* Intro Phase */}
+            {/* Phase 1: Intro (Left side) */}
+            <motion.div 
+              style={{ opacity: introOpacity, scale: introScale, filter: introBlur }}
+              className="sequence-overlay-text intro-phase-left"
+            >
+              <div className="reveal-box">
+                <motion.span 
+                  initial={{ y: "100%" }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className="s-tag"
+                >
+                  CRAFTED EXCELLENCE
+                </motion.span>
+              </div>
+              <h1 className="hero-title">Iconic <br /><span className="outline-text">Legacy</span></h1>
+              <p className="hero-subtext">A masterpiece of engineering that transcends time, designed for those who command distinction.</p>
+            </motion.div>
+
+            {/* Phase 1: Intro (Right side) */}
             <motion.div 
               style={{ opacity: introOpacity, scale: introScale, filter: introBlur }}
               className="sequence-overlay-text intro-phase"
@@ -344,7 +363,25 @@ export default function LandingPage() {
               </div>
             </motion.div>
 
-            {/* Final Phase */}
+            {/* Final Phase (Left Side) */}
+            <motion.div 
+              style={{ opacity: finalOpacity, scale: finalScale }}
+              className="sequence-overlay-text final-phase-left"
+            >
+              <span className="s-tag">MASTER CRAFT</span>
+              <h2 className="final-title">Precision <span className="emerald-accent">Perfected</span></h2>
+              <p className="final-subtext">The ultimate expression of horological art, built to transcend generations.</p>
+              <div className="hero-cta-group">
+                <motion.button 
+                  whileHover={{ scale: 1.05, letterSpacing: "0.4rem" }}
+                  className="btn-luxury-wish"
+                >
+                  Discover More
+                </motion.button>
+              </div>
+            </motion.div>
+
+            {/* Final Phase (Right Side) */}
             <motion.div 
               style={{ opacity: finalOpacity, scale: finalScale }}
               className="sequence-overlay-text final-phase"

@@ -104,6 +104,12 @@ header {
   color: white;
 }
 
+.header-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
 .btn-icon {
   background: transparent;
   border: none;
@@ -220,31 +226,52 @@ header {
 .sequence-overlay-text {
   position: absolute;
   top: 0;
-  right: 0;
-  width: 38%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 4% 0 2rem;
   pointer-events: none;
   z-index: 5;
   text-align: left;
-  background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 20%, rgba(0, 0, 0, 0.72) 50%);
+}
+
+.intro-phase-left {
+  left: 0;
+  right: auto;
+  width: 35%;
+  padding: 0 2rem 0 6%;
+  align-items: flex-start;
+  background: linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 0.55) 20%, rgba(0, 0, 0, 0.72) 50%);
 }
 
 /* Intro phase: text on the right */
 .intro-phase {
   right: 0;
   left: auto;
+  width: 35%;
+  padding: 0 6% 0 2rem;
   align-items: flex-start;
+  background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 20%, rgba(0, 0, 0, 0.72) 50%);
+}
+
+/* Final phase: text on the left */
+.final-phase-left {
+  left: 0;
+  right: auto;
+  width: 35%;
+  padding: 0 2rem 0 6%;
+  align-items: flex-start;
+  background: linear-gradient(to left, transparent 0%, rgba(0, 0, 0, 0.55) 20%, rgba(0, 0, 0, 0.72) 50%);
 }
 
 /* Final phase: text on the right */
 .final-phase {
   right: 0;
   left: auto;
+  width: 35%;
+  padding: 0 6% 0 2rem;
   align-items: flex-start;
+  background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.55) 20%, rgba(0, 0, 0, 0.72) 50%);
 }
 
 .reveal-box {
