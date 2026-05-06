@@ -126,8 +126,13 @@ header {
 }
 
 @media (max-width: 768px) {
+  .intro-phase-left,
+  .final-phase-left {
+    display: none !important;
+  }
+
   .sequence-hero-section {
-    height: 300vh;
+    height: 450vh;
   }
 }
 
@@ -1490,7 +1495,7 @@ header {
   }
 
   .sequence-hero-section {
-    height: 300vh;
+    height: 450vh;
   }
 
   .hero-title,
