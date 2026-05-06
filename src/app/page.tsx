@@ -109,22 +109,34 @@ export default function LandingPage() {
         const imgWidth = img.width;
         const imgHeight = img.height;
         
-        // On mobile: leave room for bottom text strip (~160px)
-        // On desktop: standard scale with slight upward nudge
-        const textStripHeight = isMobile ? 160 : 0;
-        const availableHeight = canvasHeight - textStripHeight;
-        const scaleFactor = isMobile ? 0.88 : 0.82;
+        let ratio, y;
         
-        const ratio = Math.min(canvasWidth / imgWidth, availableHeight / imgHeight) * scaleFactor;
+        if (isMobile) {
+          // Define the available visual area (the marked red square)
+          // Below the header (80px) and above the text panel
+          const headerGap = 80; 
+          const textPanelHeight = Math.max(canvasHeight * 0.42, 320); 
+          const availableHeight = canvasHeight - headerGap - textPanelHeight;
+          
+          // Fill the available box (the red square) completely. 
+          // Using 1.1 multiplier to counteract any internal transparent padding in the raw image frames.
+          ratio = Math.min((canvasWidth * 1.1) / imgWidth, (availableHeight * 1.1) / imgHeight);
+          
+          const newHeight = imgHeight * ratio;
+          // Center exactly inside the available height
+          y = headerGap + (availableHeight - newHeight) / 2;
+        } else {
+          ratio = Math.min(canvasWidth / imgWidth, canvasHeight / imgHeight) * 0.82;
+          const newHeight = imgHeight * ratio;
+          y = (canvasHeight - newHeight) / 2 - (newHeight * 0.03);
+        }
+        
         const newWidth = imgWidth * ratio;
         const newHeight = imgHeight * ratio;
         
-        // Center horizontally; on mobile anchor to usable area above text strip
+        // Horizontal: Always center
         const x = (canvasWidth - newWidth) / 2;
-        const y = isMobile
-          ? (availableHeight - newHeight) / 2          // centered in upper area
-          : (canvasHeight - newHeight) / 2 - (newHeight * 0.03); // desktop: slight upward nudge
-
+          
         context.clearRect(0, 0, canvasWidth, canvasHeight);
         context.drawImage(img, x, y, newWidth, newHeight);
       }
