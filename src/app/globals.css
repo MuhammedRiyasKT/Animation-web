@@ -114,10 +114,15 @@ header {
 
 /* Sequence Hero Section (The Apple Effect) */
 .sequence-hero-section {
-  height: 500vh;
-  /* Increased for more detailed phases */
+  height: 350vh;
   position: relative;
   background: var(--black);
+}
+
+@media (max-width: 768px) {
+  .sequence-hero-section {
+    height: 300vh;
+  }
 }
 
 .sticky-canvas-wrapper {
@@ -1458,7 +1463,7 @@ header {
   }
 
   .sequence-hero-section {
-    height: 400vh;
+    height: 300vh;
   }
 
   .hero-title,

@@ -26,9 +26,10 @@ export default function LandingPage() {
 
   // Smooth progress for the animation
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
+    stiffness: 50,
+    damping: 15,
+    mass: 0.1,
+    restDelta: 0.0005
   });
 
   // Calculate current frame
